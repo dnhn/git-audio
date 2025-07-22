@@ -1,6 +1,12 @@
 # Git Commit Audio
 
-Post-commit hook that plays a sound on every commit.
+A Git hook that plays a sound when you commit.
+
+[For the Love of Code 2025](https://github.blog/open-source/for-the-love-of-code-2025) hackathon entry.
+
+## Features
+- Easy to set up with a simple post-commit hook
+- Customisable sound
 
 ## Installation
 
@@ -27,4 +33,7 @@ Post-commit hook that plays a sound on every commit.
 
 5. Commit!
 
-Sound credit: https://freesound.org/people/deleted_user_2104797/sounds/324894
+## Thanks
+
+- [GitHub Copilot](https://github.com/copilot) for assisting with the code
+- [Freesound](https://freesound.org/people/deleted_user_2104797/sounds/324894) for the audio file
