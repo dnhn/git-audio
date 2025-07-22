@@ -36,5 +36,9 @@ A Git hook that plays a sound when you commit.
 
 ## Thanks
 
-- [GitHub Copilot](https://github.com/copilot) for assisting with the code
-- [Freesound](https://freesound.org/people/deleted_user_2104797/sounds/324894) for the audio file
+- [GitHub Copilot](https://github.com/copilot) for co-piloting
+- [Freesound](https://freesound.org/people/deleted_user_2104797/sounds/324894) for the audio
+
+<div align="center">
+<img src="https://github.blog/wp-content/uploads/2025/05/leereilly-copilot.gif?resize=250%2C315" alt="GitHub Copilot animation" width="250" height="315">
+</div>
