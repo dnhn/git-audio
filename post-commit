@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Absolute path to the audio file
+FILE="~/Users/me/git-commit-audio/audio.wav"
+
+# Play!
+afplay "$FILE" &
