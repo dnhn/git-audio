@@ -1,7 +1,11 @@
 #!/bin/sh
 
 # Absolute path to the audio file
-FILE="~/Users/me/git-commit-audio/audio.wav"
+FILE="/Users/me/git-commit-audio/audio.wav"
+if [ ! -f "$FILE" ]; then
+  echo "File not found '$FILE'"
+  exit 1
+fi
 
 # Play!
 afplay "$FILE" &
