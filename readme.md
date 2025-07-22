@@ -1,6 +1,6 @@
 # Git Commit Audio
 
-A Git hook that plays a sound when you commit.
+A Git hook that plays a sound when you commit, by default, a sitcom laugh track.
 
 [For the Love of Code 2025](https://github.blog/open-source/for-the-love-of-code-2025) hackathon entry.
 
@@ -13,26 +13,26 @@ A Git hook that plays a sound when you commit.
 
 1. Clone this repository
 
-2. Open [post-commit](./post-commit) and set the correct file path based on your system
+1. Open [post-commit](./post-commit) and set the correct file path based on your system
 
    ```shell
    AUDIO="/path/to/gca/audio.wav"
    ```
 
-3. Install the hook into your repository
+1. Install the hook into a repository
 
    ```shell
    cd /path/to/your/repo
    cp /path/to/gca/post-commit .git/hooks/
    ```
 
-4. Make the hooks executable
+1. Make the hooks executable
 
    ```shell
    chmod +x .git/hooks/post-commit
    ```
 
-5. Commit!
+1. Commit!
 
 ## Thanks
 
