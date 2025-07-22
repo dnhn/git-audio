@@ -5,6 +5,7 @@ A Git hook that plays a sound when you commit.
 [For the Love of Code 2025](https://github.blog/open-source/for-the-love-of-code-2025) hackathon entry.
 
 ## Features
+- Cross-platform, uses `afplay` for macOS, `aplay` or `paplay` for Linux
 - Easy to set up with a simple post-commit hook
 - Customisable sound
 
@@ -14,8 +15,8 @@ A Git hook that plays a sound when you commit.
 
 2. Open [post-commit](./post-commit) and set the correct file path based on your system
 
-   ```
-   FILE="/path/to/gca/file.wav"
+   ```shell
+   AUDIO="/path/to/gca/audio.wav"
    ```
 
 3. Install the hook into your repository

@@ -1,11 +1,28 @@
 #!/bin/sh
 
 # Absolute path to the audio file
-FILE="/Users/me/git-commit-audio/audio.wav"
-if [ ! -f "$FILE" ]; then
-  echo "File not found '$FILE'"
+AUDIO="/Users/me/git-commit-audio/audio.wav"
+if [ ! -f "$AUDIO" ]; then
+  echo "Audio not found '$AUDIO'"
   exit 1
 fi
 
-# Play!
-afplay "$FILE" &
+OS="$(uname)"
+case "$OS" in
+  Darwin)
+    afplay "$AUDIO" &
+    ;;
+  Linux)
+    if command -v aplay >/dev/null 2>&1; then
+      aplay "$AUDIO" &
+    elif command -v paplay >/dev/null 2>&1; then
+      paplay "$AUDIO" &
+    else
+      echo "Audio player not found."
+      exit 1
+    fi
+    ;;
+  *)
+    echo "Unsupported OS: $OS"
+    exit 1
+esac
