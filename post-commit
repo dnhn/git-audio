@@ -3,7 +3,7 @@
 # Absolute path to the audio file
 AUDIO="/Users/me/git-commit-audio/audio.wav"
 if [ ! -f "$AUDIO" ]; then
-  echo "Audio not found '$AUDIO'"
+  echo "Git Commit Audio: audio not found '$AUDIO'"
   exit 1
 fi
 
@@ -18,11 +18,11 @@ case "$OS" in
     elif command -v paplay >/dev/null 2>&1; then
       paplay "$AUDIO" &
     else
-      echo "Audio player not found."
+      echo "Git Commit Audio: audio player not found."
       exit 1
     fi
     ;;
   *)
-    echo "Unsupported OS: $OS"
+    echo "Git Commit Audio: unsupported OS $OS"
     exit 1
 esac
