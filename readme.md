@@ -1,5 +1,7 @@
 # Git Commit Audio
 
+![Cover image](./cover.svg)
+
 A Git hook that plays a sound when you commit. By default, it uses a sitcom laugh track.
 
 [For the Love of Code 2025](https://github.blog/open-source/for-the-love-of-code-2025) hackathon entry.
@@ -9,7 +11,7 @@ A Git hook that plays a sound when you commit. By default, it uses a sitcom laug
   - macOS (`afplay`)
   - Linux (`aplay` or `paplay`)
 - Quick setup with a single script
-- Easily customisable sound (use your own audio)
+- Easily customisable audio (use your own audio)
 
 | File | Description |
 | - | - |
@@ -19,7 +21,7 @@ A Git hook that plays a sound when you commit. By default, it uses a sitcom laug
 
 ## How it works
 
-This project installs a Git `post-commit` hook that plays an audio file after every commit. You can use the provided laugh track or replace it with your own sound.
+This project installs a Git `post-commit` hook that plays an audio file after every commit. You can use the provided laugh track or replace it with your own audio.
 
 ## Installation
 
@@ -45,7 +47,7 @@ Clone this repository and choose one of the installation methods below.
 
 ### Manual
 
-1. **[REQUIRED]** Link to the provided audio or your own sound
+1. **[REQUIRED]** Link to the provided audio or your own audio
 
    ```shell
    # .bashrc, .zshrc, etc.
@@ -66,6 +68,7 @@ Clone this repository and choose one of the installation methods below.
 
 - :copilot: [GitHub Copilot](https://github.com/copilot) for co-piloting
 - 🔈 [Freesound](https://freesound.org/people/deleted_user_2104797/sounds/324894) for the audio
+- 📔 [og.new](https://og.new) for the cover image
 
 <div align="center">
 <img src="https://github.blog/wp-content/uploads/2025/05/leereilly-copilot.gif?resize=250%2C315" alt="GitHub Copilot animation" width="250" height="315">
