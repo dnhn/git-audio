@@ -1,25 +1,31 @@
 # Git Commit Audio
 
-A Git hook that plays a sound when you commit, by default, a sitcom laugh track.
+A Git hook that plays a sound when you commit. By default, it uses a sitcom laugh track.
 
 [For the Love of Code 2025](https://github.blog/open-source/for-the-love-of-code-2025) hackathon entry.
 
 ## Features
-- Cross-platform, uses `afplay` for macOS, `aplay` or `paplay` for Linux
-- Easy to set up with a simple post-commit hook
-- Customisable sound
+- Cross-platform
+  - macOS (`afplay`)
+  - Linux (`aplay` or `paplay`)
+- Quick setup with a single script
+- Easily customisable sound (use your own audio)
 
 | File | Description |
 | - | - |
-| `audio.wav` | The audio |
-| `install.sh` | Installation script |
-| `post-commit` | Git hook for manual installation |
+| [`audio.wav`](/audio.wav) | The audio |
+| [`install.sh`](./install.sh) | Installation script |
+| [`post-commit`](./post-commit) | Git hook for manual setup |
+
+## How it works
+
+This project installs a Git `post-commit` hook that plays an audio file after every commit. You can use the provided laugh track or replace it with your own sound.
 
 ## Installation
 
-Clone this repository and follow one of the installation methods below.
+Clone this repository and choose one of the installation methods below.
 
-### Script
+### Automatic (Recommended)
 
 1. Install the hook into a repository
 
@@ -32,22 +38,17 @@ Clone this repository and follow one of the installation methods below.
 
 ### Manual
 
-1. Open [post-commit](./post-commit) and set the correct file path based on your system
+1. Open [post-commit](./post-commit) and update the `AUDIO` path based on your system
 
    ```shell
    AUDIO="/path/to/gca/audio.wav"
    ```
 
-1. Install the hook into a repository
+1. Copy the hook into a repository and make it executable
 
    ```shell
    cd /path/to/your/repo
    cp /path/to/gca/post-commit .git/hooks/
-   ```
-
-1. Make the hooks executable
-
-   ```shell
    chmod +x .git/hooks/post-commit
    ```
 
