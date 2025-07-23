@@ -1,18 +1,14 @@
 #!/bin/sh
 
-# The audio file is expected to be in the same directory as this script.
-AUDIO_FILENAME="audio.wav"
-
 REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
 if [ -z "$REPO_ROOT" ]; then
   echo "Please run this script inside a Git repository."
   return
 fi
 
-AUDIO_PATH="$(cd "$(dirname "$0")" && pwd)/$AUDIO_FILENAME"
-if [ ! -f "$AUDIO_PATH" ]; then
-  echo "Audio not found '$AUDIO_PATH'"
-  return
+AUDIO_PATH="$GIT_COMMIT_AUDIO"
+if [ ! -f "$GIT_COMMIT_AUDIO" ]; then
+  AUDIO_PATH="$(cd "$(dirname "$0")" && pwd)/audio.wav"
 fi
 
 # post-commit hook

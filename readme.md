@@ -27,6 +27,13 @@ Clone this repository and choose one of the installation methods below.
 
 ### Automatic (Recommended)
 
+1. **[OPTIONAL]** Set your own audio file or skip this step to use the provided audio
+
+   ```shell
+   # .bashrc, .zshrc, etc.
+   export GIT_COMMIT_AUDIO="/path/to/your/audio"
+   ```
+
 1. Install the hook into a repository
 
    ```shell
@@ -38,10 +45,11 @@ Clone this repository and choose one of the installation methods below.
 
 ### Manual
 
-1. Open [post-commit](./post-commit) and update the `AUDIO` path based on your system
+1. **[REQUIRED]** Link to the provided audio or your own sound
 
    ```shell
-   AUDIO="/path/to/gca/audio.wav"
+   # .bashrc, .zshrc, etc.
+   export GIT_COMMIT_AUDIO="/path/to/gca/audio.wav"
    ```
 
 1. Copy the hook into a repository and make it executable
@@ -56,8 +64,8 @@ Clone this repository and choose one of the installation methods below.
 
 ## Thanks
 
-- [GitHub Copilot](https://github.com/copilot) for co-piloting
-- [Freesound](https://freesound.org/people/deleted_user_2104797/sounds/324894) for the audio
+- :copilot: [GitHub Copilot](https://github.com/copilot) for co-piloting
+- 🔈 [Freesound](https://freesound.org/people/deleted_user_2104797/sounds/324894) for the audio
 
 <div align="center">
 <img src="https://github.blog/wp-content/uploads/2025/05/leereilly-copilot.gif?resize=250%2C315" alt="GitHub Copilot animation" width="250" height="315">

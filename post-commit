@@ -1,22 +1,20 @@
 #!/bin/sh
 
-# Absolute path to the audio file
-AUDIO="/Users/me/git-commit-audio/audio.wav"
-if [ ! -f "$AUDIO" ]; then
-  echo "Git Commit Audio: audio not found '$AUDIO'"
+if [ ! -f "$GIT_COMMIT_AUDIO" ]; then
+  echo "Git Commit Audio: audio not found '$GIT_COMMIT_AUDIO'"
   exit 1
 fi
 
 OS="$(uname)"
 case "$OS" in
   Darwin)
-    afplay "$AUDIO" &
+    afplay "$GIT_COMMIT_AUDIO" &
     ;;
   Linux)
     if command -v aplay >/dev/null 2>&1; then
-      aplay "$AUDIO" &
+      aplay "$GIT_COMMIT_AUDIO" &
     elif command -v paplay >/dev/null 2>&1; then
-      paplay "$AUDIO" &
+      paplay "$GIT_COMMIT_AUDIO" &
     else
       echo "Git Commit Audio: audio player not found."
       exit 1
