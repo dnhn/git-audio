@@ -9,9 +9,28 @@ A Git hook that plays a sound when you commit, by default, a sitcom laugh track.
 - Easy to set up with a simple post-commit hook
 - Customisable sound
 
+| File | Description |
+| - | - |
+| `audio.wav` | The audio |
+| `install.sh` | Installation script |
+| `post-commit` | Git hook for manual installation |
+
 ## Installation
 
-1. Clone this repository
+Clone this repository and follow one of the installation methods below.
+
+### Script
+
+1. Install the hook into a repository
+
+   ```shell
+   cd /path/to/your/repo
+   source /path/to/gca/install.sh
+   ```
+
+1. Commit!
+
+### Manual
 
 1. Open [post-commit](./post-commit) and set the correct file path based on your system
 
