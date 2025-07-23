@@ -21,7 +21,7 @@ A Git hook that plays a sound when you commit. By default, it uses a sitcom laug
 
 ## How it works
 
-This project installs a Git `post-commit` hook that plays an audio file after every commit. You can use the provided laugh track or replace it with your own audio.
+This project installs a Git [`post-commit`](https://git-scm.com/docs/githooks#_post_commit) hook that plays an audio file after every commit. You can use the provided laugh track or replace it with your own audio.
 
 ## Installation
 
