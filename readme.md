@@ -4,7 +4,7 @@
 
 A Git hook that plays a sound when you commit. By default, it uses a sitcom laugh track.
 
-[For the Love of Code 2025](https://github.blog/open-source/for-the-love-of-code-2025) hackathon entry.
+[For the Love of Code 2025](https://gh.io/ftloc) hackathon entry.
 
 ## Features
 - Cross-platform
@@ -66,8 +66,8 @@ Clone this repository and choose one of the installation methods below.
 
 ## Thanks
 
-- :copilot: [GitHub Copilot](https://github.com/copilot) for co-piloting
-- 🔈 [Freesound](https://freesound.org/people/deleted_user_2104797/sounds/324894) for the audio
+- :copilot: [GitHub Copilot](https://gh.io/copilot) for co-piloting
+- 🔈 [Freesound](https://freesound.org/s/324894) for the audio
 - 📔 [og.new](https://og.new) for the cover image
 
 <div align="center">
