@@ -1,14 +1,11 @@
 #!/bin/sh
 
+AUDIO_PATH="$(cd "$(dirname "$0")" && pwd)/audio.wav"
+
 REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
 if [ -z "$REPO_ROOT" ]; then
   echo "Please run this script inside a Git repository."
   return
-fi
-
-AUDIO_PATH="$GIT_COMMIT_AUDIO"
-if [ ! -f "$GIT_COMMIT_AUDIO" ]; then
-  AUDIO_PATH="$(cd "$(dirname "$0")" && pwd)/audio.wav"
 fi
 
 # post-commit hook
@@ -16,7 +13,11 @@ HOOK_FILE="$REPO_ROOT/.git/hooks/post-commit"
 cat > "$HOOK_FILE" <<EOF
 #!/bin/sh
 
-AUDIO="$AUDIO_PATH"
+AUDIO="\$GIT_COMMIT_AUDIO"
+if [ ! -f "\$AUDIO" ]; then
+  AUDIO="$AUDIO_PATH"
+fi
+
 if [ ! -f "\$AUDIO" ]; then
   echo "Git Commit Audio: audio not found '\$AUDIO'"
   exit 1
