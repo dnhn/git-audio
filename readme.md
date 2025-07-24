@@ -7,6 +7,7 @@ A Git hook that plays a sound when you commit. By default, it uses a sitcom laug
 [For the Love of Code 2025](https://gh.io/ftloc) hackathon entry.
 
 ## Features
+
 - Cross-platform
   - macOS (`afplay`)
   - Linux (`aplay` or `paplay`)
@@ -17,11 +18,7 @@ A Git hook that plays a sound when you commit. By default, it uses a sitcom laug
 | - | - |
 | [`audio.wav`](/audio.wav) | The audio |
 | [`install.sh`](./install.sh) | Installation script |
-| [`post-commit`](./post-commit) | Git hook for manual setup |
-
-## How it works
-
-This project installs a Git [`post-commit`](https://git-scm.com/docs/githooks#_post_commit) hook that plays an audio file after every commit. You can use the provided laugh track or replace it with your own audio.
+| [`post-commit`](./post-commit) | [Git hook](https://git-scm.com/docs/githooks#_post_commit) for manual setup |
 
 ## Installation
 
@@ -63,6 +60,10 @@ Clone this repository and choose one of the installation methods below.
    ```
 
 1. Commit!
+
+## Demo
+
+https://github.com/user-attachments/assets/9da2c4f6-9462-4074-a5d4-7a85f6c11e80
 
 ## Thanks
 
