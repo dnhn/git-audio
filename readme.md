@@ -2,7 +2,7 @@
 
 ![Cover image](./cover.svg)
 
-A Git hook that plays a sound when you commit. By default, it uses a sitcom laugh track.
+Add a spark of joy to coding—hear a surprise sound every time you commit. By default, it’s a sitcom laugh track.
 
 [For the Love of Code 2025](https://gh.io/ftloc) hackathon entry.
 
@@ -35,7 +35,7 @@ Clone this repository and choose one of the installation methods below.
 
 1. Commit!
 
-#### Use your own audio
+Later you can change the audio simply by setting the variable:
 
 ```shell
 # .bashrc, .zshrc, etc.
@@ -44,7 +44,7 @@ export GIT_COMMIT_AUDIO="/path/to/your/audio"
 
 ### Manual
 
-1. **[REQUIRED]** Link to the provided audio or your own audio
+1. The variable is required before using the hook, link to the provided audio or your own:
 
    ```shell
    # .bashrc, .zshrc, etc.
