@@ -26,13 +26,6 @@ Clone this repository and choose one of the installation methods below.
 
 ### Automatic (Recommended)
 
-1. **[OPTIONAL]** Set your own audio file or skip this step to use the provided audio
-
-   ```shell
-   # .bashrc, .zshrc, etc.
-   export GIT_COMMIT_AUDIO="/path/to/your/audio"
-   ```
-
 1. Install the hook into a repository
 
    ```shell
@@ -41,6 +34,13 @@ Clone this repository and choose one of the installation methods below.
    ```
 
 1. Commit!
+
+#### Use your own audio
+
+```shell
+# .bashrc, .zshrc, etc.
+export GIT_COMMIT_AUDIO="/path/to/your/audio"
+```
 
 ### Manual
 
