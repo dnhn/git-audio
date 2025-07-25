@@ -22,17 +22,13 @@ Add a spark of joy to coding—hear a surprise sound every time you commit. By d
 
 ## Installation
 
-Clone this repository and choose one of the installation methods below.
-
-### Automatic (Recommended)
-
+1. Clone this repository
 1. Install the hook into a repository
 
    ```shell
    cd /path/to/your/repo
    source /path/to/gca/install.sh
    ```
-
 1. Commit!
 
 Later you can change the audio simply by setting the variable:
@@ -41,25 +37,6 @@ Later you can change the audio simply by setting the variable:
 # .bashrc, .zshrc, etc.
 export GIT_COMMIT_AUDIO="/path/to/your/audio"
 ```
-
-### Manual
-
-1. The variable is required before using the hook, link to the provided audio or your own:
-
-   ```shell
-   # .bashrc, .zshrc, etc.
-   export GIT_COMMIT_AUDIO="/path/to/gca/audio.wav"
-   ```
-
-1. Copy the hook into a repository and make it executable
-
-   ```shell
-   cd /path/to/your/repo
-   cp /path/to/gca/post-commit .git/hooks/
-   chmod +x .git/hooks/post-commit
-   ```
-
-1. Commit!
 
 ## Demo
 
@@ -72,5 +49,5 @@ https://github.com/user-attachments/assets/9da2c4f6-9462-4074-a5d4-7a85f6c11e80
 - 📔 [og.new](https://og.new) for the cover image
 
 <div align="center">
-<img src="https://github.blog/wp-content/uploads/2025/05/leereilly-copilot.gif?resize=250%2C315" alt="GitHub Copilot animation" width="250" height="315">
+<img src="https://github.blog/wp-content/uploads/2025/05/leereilly-copilot.gif" alt="Copilot animation" width="250" height="315">
 </div>
