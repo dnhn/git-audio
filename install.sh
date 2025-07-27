@@ -8,41 +8,20 @@ if [ -z "$REPO_ROOT" ]; then
   return
 fi
 
-# post-commit hook
-HOOK_FILE="$REPO_ROOT/.git/hooks/post-commit"
-cat > "$HOOK_FILE" <<EOF
-#!/bin/sh
+CONFIG_DIR="$HOME/.git-commit-audio"
+CONFIG_FILE="$CONFIG_DIR/config.sh"
+SRC_DIR="$(cd "$(dirname "$0")" && pwd)"
+SRC_AUDIO="$SRC_DIR/audio.wav"
+SRC_HOOK="$SRC_DIR/post-commit"
+HOOKS_DIR="$REPO_ROOT/.git/hooks"
+HOOK_FILE="$HOOKS_DIR/post-commit"
 
-AUDIO="\$GIT_COMMIT_AUDIO"
-if [ ! -f "\$AUDIO" ]; then
-  AUDIO="$AUDIO_PATH"
-fi
+mkdir -p $CONFIG_DIR
+touch $CONFIG_FILE
+echo "export GIT_COMMIT_AUDIO=\"$CONFIG_DIR/audio.wav\"" > $CONFIG_FILE
 
-if [ ! -f "\$AUDIO" ]; then
-  echo "Git Commit Audio: audio not found '\$AUDIO'"
-  exit 1
-fi
+cp $SRC_AUDIO $CONFIG_DIR
+cp $SRC_HOOK $HOOKS_DIR
+chmod +x $HOOK_FILE
 
-OS="\$(uname)"
-case "\$OS" in
-  Darwin)
-    afplay "\$AUDIO" &
-    ;;
-  Linux)
-    if command -v aplay >/dev/null 2>&1; then
-      aplay "\$AUDIO" &
-    elif command -v paplay >/dev/null 2>&1; then
-      paplay "\$AUDIO" &
-    else
-      echo "Git Commit Audio: audio player not found."
-      exit 1
-    fi
-    ;;
-  *)
-    echo "Git Commit Audio: unsupported OS \$OS"
-    exit 1
-esac
-EOF
-
-chmod +x "$HOOK_FILE"
 echo "Git Commit Audio installed!"

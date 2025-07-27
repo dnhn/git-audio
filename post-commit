@@ -1,5 +1,14 @@
 #!/bin/sh
 
+CONFIG="$HOME/.git-commit-audio/config.sh"
+
+if [ ! -f "$CONFIG" ]; then
+  echo "\n$GCA: configuration not found, please re-install.\n"
+  exit 1
+fi
+
+source $CONFIG
+
 if [ ! -f "$GIT_COMMIT_AUDIO" ]; then
   echo "Git Commit Audio: audio not found '$GIT_COMMIT_AUDIO'"
   exit 1
