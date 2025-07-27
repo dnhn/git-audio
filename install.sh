@@ -17,8 +17,11 @@ HOOKS_DIR="$REPO_ROOT/.git/hooks"
 HOOK_FILE="$HOOKS_DIR/post-commit"
 
 mkdir -p $CONFIG_DIR
-touch $CONFIG_FILE
-echo "export GIT_COMMIT_AUDIO=\"$CONFIG_DIR/audio.wav\"" > $CONFIG_FILE
+
+if [ ! -f "$CONFIG_FILE" ]; then
+  touch $CONFIG_FILE
+  echo "export GIT_COMMIT_AUDIO=\"$CONFIG_DIR/audio.wav\"" > $CONFIG_FILE
+fi
 
 cp $SRC_AUDIO $CONFIG_DIR
 cp $SRC_HOOK $HOOKS_DIR
