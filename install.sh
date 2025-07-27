@@ -1,6 +1,6 @@
 #!/bin/sh
 
-AUDIO_PATH="$(cd "$(dirname "$0")" && pwd)/audio.wav"
+GCA="\033[1mGit Commit Audio\033[0m"
 
 REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
 if [ -z "$REPO_ROOT" ]; then
@@ -24,4 +24,4 @@ cp $SRC_AUDIO $CONFIG_DIR
 cp $SRC_HOOK $HOOKS_DIR
 chmod +x $HOOK_FILE
 
-echo "Git Commit Audio installed!"
+echo "$GCA installed! Find your configuration at $CONFIG_DIR"

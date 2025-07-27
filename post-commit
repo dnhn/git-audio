@@ -1,5 +1,6 @@
 #!/bin/sh
 
+GCA="\033[1mGit Commit Audio\033[0m"
 CONFIG="$HOME/.git-commit-audio/config.sh"
 
 if [ ! -f "$CONFIG" ]; then
@@ -10,7 +11,7 @@ fi
 source $CONFIG
 
 if [ ! -f "$GIT_COMMIT_AUDIO" ]; then
-  echo "Git Commit Audio: audio not found '$GIT_COMMIT_AUDIO'"
+  echo "\n$GCA: audio not found $GIT_COMMIT_AUDIO\n"
   exit 1
 fi
 
@@ -25,11 +26,11 @@ case "$OS" in
     elif command -v paplay >/dev/null 2>&1; then
       paplay "$GIT_COMMIT_AUDIO" &
     else
-      echo "Git Commit Audio: audio player not found."
+      echo "\n$GCA: audio player not found.\n"
       exit 1
     fi
     ;;
   *)
-    echo "Git Commit Audio: unsupported OS $OS"
+    echo "\n$GCA: unsupported OS $OS\n"
     exit 1
 esac
