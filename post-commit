@@ -3,34 +3,32 @@
 GCA="\033[1mGit Commit Audio\033[0m"
 CONFIG="$HOME/.git-commit-audio/config.sh"
 
-if [ ! -f "$CONFIG" ]; then
+if [ ! -f $CONFIG ]; then
   echo "\n$GCA: configuration not found, please re-install.\n"
   exit 1
 fi
 
 source $CONFIG
 
-if [ ! -f "$GIT_COMMIT_AUDIO" ]; then
+if [ ! -f $GIT_COMMIT_AUDIO ]; then
   echo "\n$GCA: audio not found $GIT_COMMIT_AUDIO\n"
   exit 1
 fi
 
-OS="$(uname)"
-case "$OS" in
+OS=$(uname)
+case $OS in
   Darwin)
-    afplay "$GIT_COMMIT_AUDIO" &
+    afplay $GIT_COMMIT_AUDIO &
     ;;
   Linux)
     if command -v aplay >/dev/null 2>&1; then
-      aplay "$GIT_COMMIT_AUDIO" &
+      aplay $GIT_COMMIT_AUDIO &
     elif command -v paplay >/dev/null 2>&1; then
-      paplay "$GIT_COMMIT_AUDIO" &
+      paplay $GIT_COMMIT_AUDIO &
     else
       echo "\n$GCA: audio player not found.\n"
-      exit 1
     fi
     ;;
   *)
     echo "\n$GCA: unsupported OS $OS\n"
-    exit 1
 esac

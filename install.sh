@@ -18,7 +18,7 @@ HOOK_FILE="$HOOKS_DIR/post-commit"
 
 mkdir -p $CONFIG_DIR
 
-if [ ! -f "$CONFIG_FILE" ]; then
+if [ ! -f $CONFIG_FILE ]; then
   touch $CONFIG_FILE
   echo "export GIT_COMMIT_AUDIO=\"$CONFIG_DIR/audio.wav\"" > $CONFIG_FILE
 fi
