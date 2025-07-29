@@ -46,7 +46,10 @@ To uninstall, simply delete `.git/hooks/post-commit` from the repository.
    ```shell
    make commit
    ```
-1. `git init` will now include the hook in new repositories
+1. `git init`
+
+   New repositories will now include the hook.
+1. Commit!
 
 To stop including the hook in new repositories, run
 
