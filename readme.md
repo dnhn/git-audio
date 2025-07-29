@@ -67,7 +67,7 @@ Configuration is stored in `$HOME/.git-commit-audio/`
 $HOME/.git-commit-audio/
   ├─ audio.wav
   ├─ config.sh
-  └─ template
+  └─ templates
       └─ hooks
           └─ post-commit
 ```
