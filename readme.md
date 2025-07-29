@@ -77,7 +77,7 @@ export GIT_COMMIT_AUDIO="/path/to/your/audio"
 
 ## Demo
 
-https://github.com/user-attachments/assets/9da2c4f6-9462-4074-a5d4-7a85f6c11e80
+https://github.com/user-attachments/assets/53e5efac-269f-4259-8181-c5187a7640a0
 
 ## Thanks
 
