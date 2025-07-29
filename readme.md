@@ -49,6 +49,7 @@ To uninstall, simply delete `.git/hooks/post-commit` from the repository.
 1. `git init` will now include the hook in new repositories
 
 To stop including the hook in new repositories, run
+
 ```shell
 make reset
 ```
@@ -58,6 +59,7 @@ This only de-registers the hook for newly initialised repositories, you need to 
 ## Configuration
 
 Configuration is stored in `$HOME/.git-commit-audio/`
+
 ```
 $HOME/.git-commit-audio/
   ├─ audio.wav
@@ -67,7 +69,7 @@ $HOME/.git-commit-audio/
           └─ post-commit
 ```
 
-To change the audio, update the path in `config.sh`
+To change the audio, update the absolute path in `config.sh`
 
 ```shell
 export GIT_COMMIT_AUDIO="/path/to/your/audio"
