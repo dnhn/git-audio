@@ -80,7 +80,7 @@ export GIT_COMMIT_AUDIO="/path/to/your/audio"
 
 ## Demo
 
-https://github.com/user-attachments/assets/53e5efac-269f-4259-8181-c5187a7640a0
+https://github.com/user-attachments/assets/7c228920-260a-4d57-8fe8-7d6e73edfa5f
 
 ## Thanks
 
