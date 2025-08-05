@@ -92,7 +92,7 @@ https://github.com/user-attachments/assets/572f65e2-3b84-4c3e-9d10-50e4a558c38e
 - :copilot: [GitHub Copilot](https://gh.io/copilot) for co-piloting
 - 🔈 [Freesound](https://freesound.org/s/324894) for the audio
 - 📔 [og.new](https://og.new) for the cover image
-- [ZURB](https://github.com/zurb/foundation-icon-fonts) for the logo icon
+- ➡️ [ZURB](https://github.com/zurb/foundation-icon-fonts) for the logo icon
 
 <div align="center">
 <img src="https://github.blog/wp-content/uploads/2025/05/leereilly-copilot.gif" alt="Copilot animation" width="250" height="315">
