@@ -1,10 +1,16 @@
+<div align="center">
+
 # Git Commit Audio
 
 ![Cover image](./cover.svg)
 
+[![License](https://img.shields.io/github/license/dnhn/gca?style=for-the-badge&cacheSeconds=86400)](./license)
+
 Add a spark of joy to coding—hear a surprise sound every time you commit. By default, it’s a sitcom laugh track.
 
 [For the Love of Code 2025](https://gh.io/ftloc) hackathon entry.
+
+</div>
 
 ## Features
 
@@ -40,16 +46,14 @@ To uninstall, simply delete `.git/hooks/post-commit` from the repository.
 ### Global
 
 > [!WARNING]
-> This will affect your current Git configuration! Use with caution.
+> This will alter your global Git configuration. Use with caution.
 
 1. From this project, run
    ```shell
    make commit
    ```
-1. `git init`
-
-   New repositories will now include the hook.
-1. Commit!
+1. Initialise a repository with `git init`, new repositories will now include the hook
+1. Commit
 
 To stop including the hook in new repositories, run
 
