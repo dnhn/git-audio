@@ -2,8 +2,9 @@
 
 # Git Commit Audio
 
-![Cover image](./cover.svg)
+[![Cover image](./cover.svg)](https://gca.nhan.dev)
 
+[![Documentation](https://img.shields.io/badge/Documentation-none?style=for-the-badge&cacheSeconds=86400)](https://gca.nhan.dev)
 [![License](https://img.shields.io/github/license/dnhn/gca?style=for-the-badge&cacheSeconds=86400)](./license)
 
 Add a spark of joy to coding—hear a surprise sound every time you commit. By default, it’s a sitcom laugh track.
@@ -91,6 +92,7 @@ https://github.com/user-attachments/assets/572f65e2-3b84-4c3e-9d10-50e4a558c38e
 - :copilot: [GitHub Copilot](https://gh.io/copilot) for co-piloting
 - 🔈 [Freesound](https://freesound.org/s/324894) for the audio
 - 📔 [og.new](https://og.new) for the cover image
+- [ZURB Foundation](https://github.com/zurb/foundation-icon-fonts) for the logo icon
 
 <div align="center">
 <img src="https://github.blog/wp-content/uploads/2025/05/leereilly-copilot.gif" alt="Copilot animation" width="250" height="315">
