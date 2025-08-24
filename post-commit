@@ -1,7 +1,7 @@
 #!/bin/sh
 
-GCA="\033[1mGit Commit Audio\033[0m"
-CONFIG="$HOME/.git-commit-audio/config.sh"
+GCA="\033[1mGit Audio\033[0m"
+CONFIG="$HOME/.git-audio/config.sh"
 
 if [ ! -f $CONFIG ]; then
   echo "\n$GCA: configuration not found, please re-install.\n"

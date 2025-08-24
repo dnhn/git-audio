@@ -1,6 +1,6 @@
 #!/bin/sh
 
-GCA="\033[1mGit Commit Audio\033[0m"
+GCA="\033[1mGit Audio\033[0m"
 
 REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
 if [ -z "$REPO_ROOT" ]; then
@@ -8,7 +8,7 @@ if [ -z "$REPO_ROOT" ]; then
   return
 fi
 
-CONFIG_DIR="$HOME/.git-commit-audio"
+CONFIG_DIR="$HOME/.git-audio"
 CONFIG_FILE="$CONFIG_DIR/config.sh"
 SRC_DIR="$(cd "$(dirname "$0")" && pwd)"
 SRC_AUDIO="$SRC_DIR/audio.wav"

@@ -1,6 +1,6 @@
 <div align="center">
 
-# Git Commit Audio
+# Git Audio
 
 [![Cover image](./cover.svg)](https://gca.nhan.dev)
 
@@ -66,10 +66,10 @@ This only de-registers the hook for newly initialised repositories, you need to 
 
 ## Configuration
 
-Configuration is stored in `$HOME/.git-commit-audio/`
+Configuration is stored in `$HOME/.git-audio/`
 
 ```
-$HOME/.git-commit-audio/
+$HOME/.git-audio/
   ├─ audio.wav
   ├─ config.sh
   └─ templates

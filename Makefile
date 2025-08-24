@@ -1,9 +1,9 @@
 .DEFAULT: welcome
 .PHONY: install uninstall
 
-GCA="\033[1mGit Commit Audio\033[0m"
+GCA="\033[1mGit Audio\033[0m"
 GIT_CORE_TEMPLATE=$(shell git --exec-path)/../../share/git-core/templates
-CONFIG_DIR=$(HOME)/.git-commit-audio
+CONFIG_DIR=$(HOME)/.git-audio
 CONFIG_FILE=$(CONFIG_DIR)/config.sh
 TEMPLATE_DIR=$(CONFIG_DIR)/templates
 
