@@ -2,9 +2,9 @@
 
 # Git Audio
 
-[![Cover image](./cover.svg)](https://gca.nhan.dev)
+[![Cover image](./cover.svg)](https://git-audio.nhan.dev)
 
-[![Documentation](https://img.shields.io/badge/Documentation-none?style=for-the-badge&cacheSeconds=86400)](https://gca.nhan.dev)
+[![Documentation](https://img.shields.io/badge/Documentation-none?style=for-the-badge&cacheSeconds=86400)](https://git-audio.nhan.dev)
 [![License](https://img.shields.io/github/license/dnhn/gca?style=for-the-badge&cacheSeconds=86400)](./license)
 
 Add a spark of joy to coding—hear a surprise sound every time you commit. By default, it’s a sitcom laugh track.
@@ -22,47 +22,32 @@ Add a spark of joy to coding—hear a surprise sound every time you commit. By d
 - Centralised configuration
 - Easily customisable audio
 
-| File | Description |
-| - | - |
-| [`audio.wav`](/audio.wav) | The audio |
-| [`install.sh`](./install.sh) | Repository installation script |
-| [`Makefile`](./Makefile) | Global hook commands |
-| [`post-commit`](./post-commit) | [The hook](https://git-scm.com/docs/githooks#_post_commit) |
-
 ## Installation
 
-Clone this project and follow the instructions.
+```shell
+make install
+```
+
+That’s it! You can now use the `git-audio` command.
+
+## Usage
 
 ### Per-repository
 
 1. Install the hook into a repository
    ```shell
-   cd /path/to/your/repo
-   source /path/to/gca/install.sh
+   git-audio repo commit
    ```
 1. Commit!
 
-To uninstall, simply delete `.git/hooks/post-commit` from the repository.
-
 ### Global
 
-> [!WARNING]
-> This will alter your global Git configuration. Use with caution.
-
-1. From this project, run
+1. Run
    ```shell
-   make commit
+   git-audio global commit
    ```
-1. Initialise a repository with `git init`, new repositories will now include the hook
-1. Commit
-
-To stop including the hook in new repositories, run
-
-```shell
-make reset
-```
-
-This only de-registers the hook for newly initialised repositories, you need to delete the hook manually from existing repositories.
+1. `git init`
+1. Commit!
 
 ## Configuration
 
@@ -72,27 +57,23 @@ Configuration is stored in `$HOME/.git-audio/`
 $HOME/.git-audio/
   ├─ audio.wav
   ├─ config.sh
+  ├─ gca.sh
   └─ templates
       └─ hooks
           └─ post-commit
 ```
 
-To change the audio, update the absolute path in `config.sh`
+To change the audio, run this command:
 
 ```shell
-export GIT_COMMIT_AUDIO="/path/to/your/audio"
+git-audio audio /path/to/your/audio
 ```
-
-## Demo
-
-https://github.com/user-attachments/assets/572f65e2-3b84-4c3e-9d10-50e4a558c38e
 
 ## Thanks
 
 - :copilot: [GitHub Copilot](https://gh.io/copilot) for co-piloting
 - 🔈 [Freesound](https://freesound.org/s/324894) for the audio
 - 📔 [og.new](https://og.new) for the cover image
-- ➡️ [ZURB](https://github.com/zurb/foundation-icon-fonts) for the logo icon
 
 <div align="center">
 <img src="https://github.blog/wp-content/uploads/2025/05/leereilly-copilot.gif" alt="Copilot animation" width="250" height="315">
