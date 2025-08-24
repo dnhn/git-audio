@@ -1,4 +1,5 @@
 #!/bin/sh
+# Git Audio command line interface
 
 COMMAND="$1"
 PARAMETER="$2"
@@ -24,8 +25,8 @@ case "$COMMAND" in
         ;;
       *)
         echo "\nGLOBAL HOOK COMMANDS"
-        echo "  set    \tSet global commit hook"
-        echo "  unset  \tUnset global commit hook"
+        echo "  set    \tSet global hook"
+        echo "  unset  \tUnset global hook"
         ;;
     esac
     ;;
@@ -103,7 +104,7 @@ case "$COMMAND" in
     ;;
   *)
     echo "\nCOMMANDS"
-    echo "  global  \tManage global hook"
+    echo "  global  \tGlobal hook"
     echo "  repo    \tRepository hook"
     echo "  audio   \tAudio configuration"
     ;;
