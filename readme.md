@@ -56,8 +56,8 @@ Configuration is stored in `$HOME/.git-audio/`
 ```
 $HOME/.git-audio/
   ├─ audio.wav
+  ├─ cli.sh
   ├─ config.sh
-  ├─ gca.sh
   └─ templates
       └─ hooks
           └─ post-commit

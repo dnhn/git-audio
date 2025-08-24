@@ -20,8 +20,8 @@ init:
 		echo 'export GIT_COMMIT_AUDIO="$(CONFIG_DIR)/audio.wav"' > $(CONFIG_FILE); \
 	fi
 	@cp audio.wav $(CONFIG_DIR)
-	@cp gca.sh $(CONFIG_DIR)
-	@chmod +x $(CONFIG_DIR)/gca.sh
+	@cp cli.sh $(CONFIG_DIR)
+	@chmod +x $(CONFIG_DIR)/cli.sh
 	@cp -R $(GIT_CORE_TEMPLATE) $(CONFIG_DIR)
 	@cp post-commit $(TEMPLATE_DIR)'/hooks'
 	@chmod +x $(TEMPLATE_DIR)'/hooks/post-commit'
@@ -29,7 +29,7 @@ init:
 
 install: init
 	@echo 'Installing' $(GCA)
-	@sudo ln -fis $(CONFIG_DIR)/gca.sh /usr/local/bin/git-audio
+	@sudo ln -fis $(CONFIG_DIR)/cli.sh /usr/local/bin/git-audio
 	@echo $(GCA) 'installed at /usr/local/bin/git-audio'
 	@echo "You can now use 'git-audio' command in your terminal."
 
