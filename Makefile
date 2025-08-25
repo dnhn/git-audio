@@ -17,7 +17,7 @@ init:
 	@mkdir -p $(CONFIG_DIR)
 	@if [ ! -f $(CONFIG_FILE) ]; then \
 		touch $(CONFIG_FILE); \
-		echo 'export GIT_COMMIT_AUDIO="$(CONFIG_DIR)/audio.wav"' > $(CONFIG_FILE); \
+		echo 'export GIT_AUDIO="$(CONFIG_DIR)/audio.wav"' > $(CONFIG_FILE); \
 	fi
 	@cp audio.wav $(CONFIG_DIR)
 	@cp cli.sh $(CONFIG_DIR)

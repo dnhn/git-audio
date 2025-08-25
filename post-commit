@@ -10,21 +10,21 @@ fi
 
 source $CONFIG
 
-if [ ! -f $GIT_COMMIT_AUDIO ]; then
-  echo "\n$GCA: audio not found $GIT_COMMIT_AUDIO\n"
+if [ ! -f $GIT_AUDIO ]; then
+  echo "\n$GCA: audio not found $GIT_AUDIO\n"
   exit 1
 fi
 
 OS=$(uname)
 case $OS in
   Darwin)
-    afplay $GIT_COMMIT_AUDIO &
+    afplay $GIT_AUDIO &
     ;;
   Linux)
     if command -v aplay >/dev/null 2>&1; then
-      aplay $GIT_COMMIT_AUDIO &
+      aplay $GIT_AUDIO &
     elif command -v paplay >/dev/null 2>&1; then
-      paplay $GIT_COMMIT_AUDIO &
+      paplay $GIT_AUDIO &
     else
       echo "\n$GCA: audio player not found.\n"
     fi
