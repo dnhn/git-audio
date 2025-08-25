@@ -25,15 +25,13 @@ init:
 	@cp -R $(GIT_CORE_TEMPLATE) $(CONFIG_DIR)
 	@cp post-commit $(TEMPLATE_DIR)'/hooks'
 	@chmod +x $(TEMPLATE_DIR)'/hooks/post-commit'
-	@echo $(GCA) 'initialised in' $(CONFIG_DIR)
+	@echo $(GCA) 'configuration' $(CONFIG_DIR)
 
 install: init
-	@echo 'Installing' $(GCA)
-	@sudo ln -fis $(CONFIG_DIR)/cli.sh /usr/local/bin/git-audio
-	@echo $(GCA) 'installed at /usr/local/bin/git-audio'
+	@sudo ln -fs $(CONFIG_DIR)/cli.sh /usr/local/bin/git-audio
+	@echo $(GCA) 'CLI installed at /usr/local/bin/git-audio'
 	@echo "You can now use 'git-audio' command in your terminal."
 
 uninstall:
-	@echo 'Uninstalling' $(GCA)
 	@sudo rm -rf /usr/local/bin/git-audio
 	@echo $(GCA) 'uninstalled. Your configuration remains in' $(CONFIG_DIR)
