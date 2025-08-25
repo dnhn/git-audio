@@ -1,6 +1,8 @@
 #!/bin/sh
 # Git Audio command line interface
 
+set -e
+
 COMMAND="$1"
 PARAMETER="$2"
 
@@ -12,7 +14,14 @@ SRC_HOOK="$TEMPLATE_DIR/hooks/post-commit"
 HOOKS_DIR="$REPO_ROOT/.git/hooks"
 HOOK_FILE="$HOOKS_DIR/post-commit"
 
-case "$COMMAND" in
+install_hook() {
+  cp $SRC_HOOK $HOOKS_DIR
+  chmod +x $HOOK_FILE
+
+  echo 'post-commit hook installed.'
+}
+
+case $COMMAND in
   global)
     case $PARAMETER in
       set)
@@ -35,30 +44,20 @@ case "$COMMAND" in
       commit)
         if [ -f "$HOOK_FILE" ]; then
           cat $HOOK_FILE
-          echo "\npost-commit hook already exists. Do you want to overwrite it? (y/N)"
-          read -r answer
-
+          read -p "$(printf '\npost-commit hook already exists. Overwrite? (y/N) ')" answer
           if [ "$answer" = 'y' ]; then
-            cp $SRC_HOOK $HOOKS_DIR
-            chmod +x $HOOK_FILE
-
-            echo 'post-commit hook installed.'
+            install_hook
           else
             echo 'post-commit hook not installed.'
           fi
         else
-          cp $SRC_HOOK $HOOKS_DIR
-          chmod +x $HOOK_FILE
-
-          echo 'post-commit hook installed.'
+          install_hook
         fi
         ;;
       reset)
         if [ -f "$HOOK_FILE" ]; then
           cat $HOOK_FILE
-          echo "\nDo you want to remove the post-commit hook? (y/N)"
-          read -r answer
-
+          read -p "$(printf '\nRemove the post-commit hook? (y/N) ')" answer
           if [ "$answer" = 'y' ]; then
             rm -f $HOOK_FILE
             echo 'post-commit hook removed.'
@@ -83,20 +82,21 @@ case "$COMMAND" in
   audio)
     case $PARAMETER in
       "")
-        source $CONFIG_FILE
-        echo "Current audio: $GIT_COMMIT_AUDIO\n"
+        . $CONFIG_FILE
+        echo 'Current audio:' $GIT_COMMIT_AUDIO
+        echo "\nAUDIO COMMANDS"
         echo "  reset             \tReset to default audio"
         echo "  /path/to/audio    \tCustom audio with absolute path"
         ;;
       reset)
-        echo "export GIT_COMMIT_AUDIO=\"$CONFIG_DIR/audio.wav\"" > $CONFIG_FILE
+        printf "export GIT_COMMIT_AUDIO=\"%s/audio.wav\"" $CONFIG_DIR > $CONFIG_FILE
         echo 'Audio reset to default' $CONFIG_DIR/audio.wav
         ;;
       *)
         if [ ! -f "$PARAMETER" ]; then
           echo "File $PARAMETER does not exist."
         else
-          echo "export GIT_COMMIT_AUDIO=\"$PARAMETER\"" > $CONFIG_FILE
+          printf "export GIT_COMMIT_AUDIO=\"%s\"" $PARAMETER > $CONFIG_FILE
           echo 'Audio set to' $PARAMETER
         fi
         ;;
