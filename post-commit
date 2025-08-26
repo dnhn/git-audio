@@ -8,7 +8,7 @@ if [ ! -f $CONFIG ]; then
   exit 1
 fi
 
-source $CONFIG
+. $CONFIG
 
 if [ ! -f $GIT_AUDIO ]; then
   echo "\n$GCA: audio not found $GIT_AUDIO\n"
@@ -22,7 +22,7 @@ case $OS in
     ;;
   Linux)
     if command -v aplay >/dev/null 2>&1; then
-      aplay $GIT_AUDIO &
+      aplay -q $GIT_AUDIO &
     elif command -v paplay >/dev/null 2>&1; then
       paplay $GIT_AUDIO &
     else

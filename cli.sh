@@ -1,8 +1,6 @@
 #!/bin/sh
 # Git Audio command line interface
 
-set -e
-
 COMMAND="$1"
 PARAMETER="$2"
 
