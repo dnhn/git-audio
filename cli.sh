@@ -15,8 +15,7 @@ HOOK_FILE="$HOOKS_DIR/post-commit"
 install_hook() {
   cp $SRC_HOOK $HOOKS_DIR
   chmod +x $HOOK_FILE
-
-  echo 'post-commit hook installed.'
+  printf "post-commit hook installed.\n"
 }
 
 case $COMMAND in
@@ -24,16 +23,16 @@ case $COMMAND in
     case $PARAMETER in
       set)
         git config --global init.templateDir $TEMPLATE_DIR
-        echo 'Global hook set.'
+        printf "Global hook set.\n"
         ;;
       unset)
         git config --global --unset init.templateDir
-        echo 'Global hook unset.'
+        printf "Global hook unset.\n"
         ;;
       *)
-        echo "\nGLOBAL HOOK COMMANDS"
-        echo "  set    \tSet global hook"
-        echo "  unset  \tUnset global hook"
+        printf "\nGLOBAL HOOK COMMANDS\n"
+        printf "  set    \tSet global hook\n"
+        printf "  unset  \tUnset global hook\n"
         ;;
     esac
     ;;
@@ -46,7 +45,7 @@ case $COMMAND in
           if [ "$answer" = 'y' ]; then
             install_hook
           else
-            echo 'post-commit hook not installed.'
+            printf "post-commit hook not installed.\n"
           fi
         else
           install_hook
@@ -58,21 +57,21 @@ case $COMMAND in
           read -p "$(printf '\nRemove the post-commit hook? (y/N) ')" answer
           if [ "$answer" = 'y' ]; then
             rm -f $HOOK_FILE
-            echo 'post-commit hook removed.'
+            printf "post-commit hook removed.\n"
           else
-            echo 'post-commit hook not removed.'
+            printf "post-commit hook not removed.\n"
           fi
         else
-          echo 'post-commit hook does not exist in this repository.'
+          printf "post-commit hook does not exist in this repository.\n"
         fi
         ;;
       *)
         if [ -z "$REPO_ROOT" ]; then
-          echo 'Please run this command inside a Git repository.'
+          printf "Please run this command inside a Git repository.\n"
         else
-          echo "\nREPOSITORY HOOK COMMANDS"
-          echo "  commit  \tInstall post-commit hook"
-          echo "  reset   \tUninstall post-commit hook"
+          printf "\nREPOSITORY HOOK COMMANDS\n"
+          printf "  commit  \tInstall post-commit hook\n"
+          printf "  reset   \tUninstall post-commit hook\n"
         fi
         ;;
     esac
@@ -81,29 +80,29 @@ case $COMMAND in
     case $PARAMETER in
       "")
         . $CONFIG_FILE
-        echo 'Current audio:' $GIT_AUDIO
-        echo "\nAUDIO COMMANDS"
-        echo "  reset             \tReset to default audio"
-        echo "  /path/to/audio    \tCustom audio with absolute path"
+        printf "Current audio: $GIT_AUDIO\n"
+        printf "\nAUDIO COMMANDS\n"
+        printf "  reset             \tReset to default audio\n"
+        printf "  /path/to/audio    \tCustom audio with absolute path\n"
         ;;
       reset)
-        printf "export GIT_AUDIO=\"%s/audio.wav\"\n" $CONFIG_DIR > $CONFIG_FILE
-        echo 'Audio reset to default' $CONFIG_DIR/audio.wav
+        printf "export GIT_AUDIO=\"$CONFIG_DIR/audio.wav\"\n" > $CONFIG_FILE
+        printf "Audio reset to default $CONFIG_DIR/audio.wav\n"
         ;;
       *)
         if [ ! -f "$PARAMETER" ]; then
-          echo "File $PARAMETER does not exist."
+          printf "File $PARAMETER does not exist.\n"
         else
-          printf "export GIT_AUDIO=\"%s\"\n" $PARAMETER > $CONFIG_FILE
-          echo 'Audio set to' $PARAMETER
+          printf "export GIT_AUDIO=\"$PARAMETER\"\n" > $CONFIG_FILE
+          printf "Audio set to $PARAMETER\n"
         fi
         ;;
     esac
     ;;
   *)
-    echo "\nCOMMANDS"
-    echo "  global  \tGlobal hook"
-    echo "  repo    \tRepository hook"
-    echo "  audio   \tAudio configuration"
+    printf "\nCOMMANDS\n"
+    printf "  global  \tGlobal hook\n"
+    printf "  repo    \tRepository hook\n"
+    printf "  audio   \tAudio configuration\n"
     ;;
 esac

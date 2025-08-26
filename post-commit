@@ -4,14 +4,14 @@ GCA="\033[1mGit Audio\033[0m"
 CONFIG="$HOME/.git-audio/config.sh"
 
 if [ ! -f $CONFIG ]; then
-  echo "\n$GCA: configuration not found, please re-install.\n"
+  printf "$GCA: configuration not found, please re-install.\n\n"
   exit 1
 fi
 
 . $CONFIG
 
 if [ ! -f $GIT_AUDIO ]; then
-  echo "\n$GCA: audio not found $GIT_AUDIO\n"
+  printf "$GCA: audio not found $GIT_AUDIO\n\n"
   exit 1
 fi
 
@@ -26,9 +26,9 @@ case $OS in
     elif command -v paplay >/dev/null 2>&1; then
       paplay $GIT_AUDIO &
     else
-      echo "\n$GCA: audio player not found.\n"
+      printf "$GCA: audio player not found.\n\n"
     fi
     ;;
   *)
-    echo "\n$GCA: unsupported OS $OS\n"
+    printf "$GCA: unsupported OS $OS\n\n"
 esac
