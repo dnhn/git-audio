@@ -25,6 +25,8 @@ case $OS in
       aplay -q $GIT_AUDIO &
     elif command -v paplay >/dev/null 2>&1; then
       paplay $GIT_AUDIO &
+    elif command -v ffplay >/dev/null 2>&1; then
+      ffplay -nodisp -autoexit -loglevel quiet $GIT_AUDIO &
     else
       printf "$GCA: audio player not found.\n\n"
     fi
