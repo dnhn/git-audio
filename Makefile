@@ -1,7 +1,7 @@
 .DEFAULT: welcome
 .PHONY: install uninstall
 
-GCA="\033[1mGit Audio\033[0m"
+GCA="\e[1mGit Audio\e[22m"
 GIT_CORE_TEMPLATE=$(shell git --exec-path)/../../share/git-core/templates
 CONFIG_DIR=$(HOME)/.git-audio
 CONFIG_FILE=$(CONFIG_DIR)/config.sh
@@ -9,9 +9,9 @@ TEMPLATE_DIR=$(CONFIG_DIR)/templates
 
 welcome:
 	@printf $(GCA)
-	@printf "\n\nAvailable commands\n"
-	@printf "  install    \tInstall Git Audio\n"
-	@printf "  uninstall  \tUninstall Git Audio\n"
+	@printf "\n\n\e[1mCOMMANDS\e[22m\n"
+	@printf "  install    Install Git Audio\n"
+	@printf "  uninstall  Uninstall Git Audio\n"
 
 init:
 	@mkdir -p $(CONFIG_DIR)

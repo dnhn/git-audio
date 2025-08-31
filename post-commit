@@ -1,6 +1,6 @@
 #!/bin/sh
 
-GCA="\033[1mGit Audio\033[0m"
+GCA="\e[1mGit Audio\e[22m"
 CONFIG="$HOME/.git-audio/config.sh"
 
 if [ ! -f $CONFIG ]; then
