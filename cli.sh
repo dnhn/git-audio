@@ -18,6 +18,13 @@ install_hook() {
   printf "post-commit hook installed.\n"
 }
 
+check_config() {
+  if [ ! -f "$CONFIG_FILE" ]; then
+    touch $CONFIG_FILE
+		printf "export GIT_AUDIO=\"$CONFIG_DIR/audio.wav\"\n" > $CONFIG_FILE
+  fi
+}
+
 case $COMMAND in
   global)
     case $PARAMETER in
@@ -41,7 +48,7 @@ case $COMMAND in
       commit)
         if [ -f "$HOOK_FILE" ]; then
           cat $HOOK_FILE
-          read -p "$(printf '\npost-commit hook already exists. Overwrite? (y/N) ')" answer
+          read -r -p "$(printf '\npost-commit hook already exists. Overwrite? (y/N) ')" answer
           if [ "$answer" = 'y' ]; then
             install_hook
           else
@@ -54,7 +61,7 @@ case $COMMAND in
       reset)
         if [ -f "$HOOK_FILE" ]; then
           cat $HOOK_FILE
-          read -p "$(printf '\nRemove the post-commit hook? (y/N) ')" answer
+          read -r -p "$(printf '\nRemove the post-commit hook? (y/N) ')" answer
           if [ "$answer" = 'y' ]; then
             rm -f $HOOK_FILE
             printf "post-commit hook removed.\n"
@@ -79,13 +86,16 @@ case $COMMAND in
   audio)
     case $PARAMETER in
       "")
+        check_config
         . $CONFIG_FILE
         printf "Current audio: $GIT_AUDIO\n"
         printf "\nAUDIO COMMANDS\n"
+        printf "  default           \tReset to default audio\n"
         printf "  reset             \tReset to default audio\n"
         printf "  /path/to/audio    \tCustom audio with absolute path\n"
         ;;
-      reset)
+      default|reset)
+        check_config
         printf "export GIT_AUDIO=\"$CONFIG_DIR/audio.wav\"\n" > $CONFIG_FILE
         printf "Audio reset to default $CONFIG_DIR/audio.wav\n"
         ;;
@@ -93,6 +103,7 @@ case $COMMAND in
         if [ ! -f "$PARAMETER" ]; then
           printf "File $PARAMETER does not exist.\n"
         else
+          check_config
           printf "export GIT_AUDIO=\"$PARAMETER\"\n" > $CONFIG_FILE
           printf "Audio set to $PARAMETER\n"
         fi
