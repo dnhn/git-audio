@@ -19,8 +19,7 @@ Add a spark of joy to coding—hear a surprise sound every time you commit. By d
   - macOS (`afplay`)
   - Linux (`aplay` or `paplay`)
 - Quick setup with a single command!
-- Centralised configuration
-- Easily customisable audio
+- Ease of use thanks to simple CLI
 
 ## Installation
 
@@ -36,7 +35,7 @@ That’s it! You can now use the `git-audio` command.
 
 1. Install the hook into a repository
    ```shell
-   git-audio repo commit
+   git-audio repo:commit
    ```
 1. Commit!
 
@@ -44,9 +43,9 @@ That’s it! You can now use the `git-audio` command.
 
 1. Run
    ```shell
-   git-audio global commit
+   git-audio global:commit
    ```
-1. `git init`
+1. `git init` or `git clone`
 1. Commit!
 
 ## Configuration
@@ -66,7 +65,7 @@ $HOME/.git-audio/
 To change the audio, run this command:
 
 ```shell
-git-audio audio /path/to/your/audio
+git-audio audio:set /path/to/your/audio
 ```
 
 ## Thanks
