@@ -9,7 +9,7 @@ TEMPLATE_DIR=$(CONFIG_DIR)/templates
 
 welcome:
 	@printf $(GCA)
-	@printf "\n\nCOMMANDS\n"
+	@printf "\n\nAvailable commands\n"
 	@printf "  install    \tInstall Git Audio\n"
 	@printf "  uninstall  \tUninstall Git Audio\n"
 
@@ -25,13 +25,13 @@ init:
 	@cp -R $(GIT_CORE_TEMPLATE) $(CONFIG_DIR)
 	@cp post-commit $(TEMPLATE_DIR)'/hooks'
 	@chmod +x $(TEMPLATE_DIR)'/hooks/post-commit'
-	@printf $(GCA)" configuration $(CONFIG_DIR)\n"
+	@printf $(GCA)" configuration created at $(CONFIG_DIR)\n"
 
 install: init
 	@sudo ln -fs $(CONFIG_DIR)/cli.sh /usr/local/bin/git-audio
 	@printf $(GCA)" CLI installed at /usr/local/bin/git-audio\n"
-	@printf "You can now use 'git-audio' command in your terminal.\n"
+	@printf "You can now use the 'git-audio' command in your terminal.\n"
 
 uninstall:
 	@sudo rm -rf /usr/local/bin/git-audio
-	@printf $(GCA)" uninstalled. Your configuration remains in $(CONFIG_DIR)\n"
+	@printf $(GCA)" CLI uninstalled. Your configuration remains in $(CONFIG_DIR)\n"

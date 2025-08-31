@@ -28,9 +28,9 @@ case $OS in
     elif command -v ffplay >/dev/null 2>&1; then
       ffplay -nodisp -autoexit -loglevel quiet $GIT_AUDIO &
     else
-      printf "$GCA: audio player not found.\n\n"
+      printf "$GCA: no supported audio player found.\n\n"
     fi
     ;;
   *)
-    printf "$GCA: unsupported OS $OS\n\n"
+    printf "$GCA: unsupported operating system $OS\n\n"
 esac

@@ -48,11 +48,11 @@ case $COMMAND in
       commit)
         if [ -f "$HOOK_FILE" ]; then
           cat $HOOK_FILE
-          read -r -p "$(printf '\npost-commit hook already exists. Overwrite? (y/N) ')" answer
+          read -r -p "$(printf '\nA post-commit hook already exists. Overwrite it? (y/N) ')" answer
           if [ "$answer" = 'y' ]; then
             install_hook
           else
-            printf "post-commit hook not installed.\n"
+            printf "post-commit hook was not changed.\n"
           fi
         else
           install_hook
@@ -66,10 +66,10 @@ case $COMMAND in
             rm -f $HOOK_FILE
             printf "post-commit hook removed.\n"
           else
-            printf "post-commit hook not removed.\n"
+            printf "post-commit hook was not removed.\n"
           fi
         else
-          printf "post-commit hook does not exist in this repository.\n"
+          printf "No post-commit hook found in this repository.\n"
         fi
         ;;
       *)
@@ -92,7 +92,7 @@ case $COMMAND in
         printf "\nAUDIO COMMANDS\n"
         printf "  default           \tReset to default audio\n"
         printf "  reset             \tReset to default audio\n"
-        printf "  /path/to/audio    \tCustom audio with absolute path\n"
+        printf "  /path/to/audio    \tSet custom audio (absolute path)\n"
         ;;
       default|reset)
         check_config
@@ -101,7 +101,7 @@ case $COMMAND in
         ;;
       *)
         if [ ! -f "$PARAMETER" ]; then
-          printf "File $PARAMETER does not exist.\n"
+          printf "File not found $PARAMETER\n"
         else
           check_config
           printf "export GIT_AUDIO=\"$PARAMETER\"\n" > $CONFIG_FILE
@@ -112,8 +112,8 @@ case $COMMAND in
     ;;
   *)
     printf "\nCOMMANDS\n"
-    printf "  global  \tGlobal hook\n"
-    printf "  repo    \tRepository hook\n"
-    printf "  audio   \tAudio configuration\n"
+    printf "  global  \tManage global hook\n"
+    printf "  repo    \tManage repository hook\n"
+    printf "  audio   \tConfigure audio\n"
     ;;
 esac
