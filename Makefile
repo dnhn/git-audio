@@ -6,6 +6,8 @@ GIT_CORE_TEMPLATE=$(shell git --exec-path)/../../share/git-core/templates
 CONFIG_DIR=$(HOME)/.git-audio
 CONFIG_FILE=$(CONFIG_DIR)/config.sh
 TEMPLATE_DIR=$(CONFIG_DIR)/templates
+CLI=$(CONFIG_DIR)/cli.sh
+BIN_PATH=/usr/local/bin/git-audio
 
 welcome:
 	@printf $(GCA)
@@ -21,17 +23,17 @@ init:
 	fi
 	@cp audio.wav $(CONFIG_DIR)
 	@cp cli.sh $(CONFIG_DIR)
-	@chmod +x $(CONFIG_DIR)/cli.sh
+	@chmod +x $(CLI)
 	@cp -R $(GIT_CORE_TEMPLATE) $(CONFIG_DIR)
 	@cp post-commit $(TEMPLATE_DIR)'/hooks'
 	@chmod +x $(TEMPLATE_DIR)'/hooks/post-commit'
 	@printf $(GCA)" configuration created at $(CONFIG_DIR)\n"
 
 install: init
-	@sudo ln -fs $(CONFIG_DIR)/cli.sh /usr/local/bin/git-audio
-	@printf $(GCA)" CLI installed at /usr/local/bin/git-audio\n"
+	@printf "Installing "$(GCA)" CLI at "$(BIN_PATH)" using sudo privileges...\n"
+	@sudo ln -fs $(CLI) $(BIN_PATH)
 	@printf "You can now use the 'git-audio' command in your terminal.\n"
 
 uninstall:
-	@sudo rm -rf /usr/local/bin/git-audio
+	@sudo rm -rf $(BIN_PATH)
 	@printf $(GCA)" CLI uninstalled. Your configuration remains in $(CONFIG_DIR)\n"
