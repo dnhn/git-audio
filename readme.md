@@ -5,7 +5,7 @@
 [![Cover image](./cover.svg)](https://git-audio.nhan.dev)
 
 [![Documentation](https://img.shields.io/badge/Documentation-none?style=for-the-badge&cacheSeconds=86400)](https://git-audio.nhan.dev)
-[![License](https://img.shields.io/github/license/dnhn/gca?style=for-the-badge&cacheSeconds=86400)](./license)
+[![License](https://img.shields.io/github/license/dnhn/gca?style=for-the-badge)](./license)
 
 Add a spark of joy to coding—hear a surprise sound every time you commit. By default, it’s a sitcom laugh track.
 
