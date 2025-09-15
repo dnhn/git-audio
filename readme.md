@@ -15,13 +15,15 @@ Add a spark of joy to coding—hear a surprise sound every time you commit. By d
 
 ## Features
 
-- Cross-platform
+- Cross-platform:
   - macOS (`afplay`)
   - Linux (`aplay` or `paplay`)
 - Quick setup with a single command!
 - Ease of use thanks to simple CLI
 
 ## Installation
+
+Make sure you have [Make](https://www.gnu.org/software/make) installed, then run:
 
 ```shell
 make install
@@ -45,12 +47,12 @@ That’s it! You can now use the `git-audio` command.
    ```shell
    git-audio global:commit
    ```
-1. `git init` or `git clone`
+1. `git init` or `git clone` as usual
 1. Commit!
 
 ## Configuration
 
-Configuration is stored in `$HOME/.git-audio/`
+Configuration files are stored in `$HOME/.git-audio/`
 
 ```
 $HOME/.git-audio/
@@ -62,11 +64,15 @@ $HOME/.git-audio/
           └─ post-commit
 ```
 
-To change the audio, run this command:
+To change the audio, run:
 
 ```shell
 git-audio audio:set /path/to/your/audio
 ```
+
+## Documentation
+
+See the [documentation](https://git-audio.nhan.dev) for complete instructions.
 
 ## Thanks
 
