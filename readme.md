@@ -17,7 +17,7 @@ Add a spark of joy to coding: hear a surprise sound every time you commit. By de
 
 - Cross-platform:
   - macOS (`afplay`)
-  - Linux (`aplay` or `paplay`)
+  - Linux (`aplay`, `paplay`, `ffplay`)
 - Quick setup with a single command!
 - Ease of use thanks to simple CLI
 

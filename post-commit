@@ -21,12 +21,12 @@ case $OS in
     afplay $GIT_AUDIO &
     ;;
   Linux)
-    if command -v aplay >/dev/null 2>&1; then
-      aplay -q $GIT_AUDIO &
-    elif command -v paplay >/dev/null 2>&1; then
+    if command -v paplay >/dev/null 2>&1; then
       paplay $GIT_AUDIO &
     elif command -v ffplay >/dev/null 2>&1; then
       ffplay -nodisp -autoexit -loglevel quiet $GIT_AUDIO &
+    elif command -v aplay >/dev/null 2>&1; then
+      aplay -q $GIT_AUDIO &
     else
       printf "$GCA: no supported audio player found.\n\n"
     fi
